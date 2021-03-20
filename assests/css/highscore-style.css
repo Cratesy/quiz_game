@@ -1,13 +1,21 @@
 body {
-  background-color: blueviolet;
+  color: darkred;
+  font-family: monospace;
+  text-align: center;
+  background-color: rgb(48, 152, 250);
 }
 
 /* viewHighScore + Timer */
 header {
-  background-color: darkgreen;
+  background-color: rgb(44, 149, 248);
 }
 
 /* HighScore buttons container */
 .buttons-container {
   padding: 10px;
+}
+.clear-high-score,
+.back-button {
+  background-color: darkred;
+  color: rgb(52, 176, 248);
 }

@@ -1,26 +1,32 @@
 body {
+  font-family: monospace;
   background-color: blueviolet;
 }
 
 /* viewHighScore + Timer */
 header {
-  background-color: darkgreen;
+  color: crimson;
+  text-align: center;
+  background-color: rgb(28, 129, 245);
 }
 /* countdown timer */
 .timer {
-  background-color: brown;
-  font-size: large;
+  background-color: rgb(43, 166, 248);
+  text-align: center;
+  font: size 30px;
   padding: 10px;
 }
 /* start container */
 .start-container {
-  padding: 10px;
+  text-align: center;
+  padding: 80px;
   background-color: cyan;
 }
 
 /* start quiz button */
 .start-button {
   font-size: large;
-  background-color: chocolate;
+  color: rgb(246, 12, 12);
+  background-color: rgb(22, 110, 182);
   padding: 10px;
 }
