@@ -12,6 +12,12 @@ header {
   font-size: large;
   padding: 10px;
 }
+/* start container */
+.start{
+  padding 10px;
+  background-color: cyan;
+}
+
 /* start quiz button */
 .start-button {
   background-color: chocolate;
