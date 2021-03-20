@@ -1,0 +1,13 @@
+body {
+  background-color: blueviolet;
+}
+
+/* viewHighScore + Timer */
+header {
+  background-color: darkgreen;
+}
+
+/* HighScore buttons container */
+.buttons-container {
+  padding: 10px;
+}
