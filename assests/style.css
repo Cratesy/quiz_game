@@ -1,0 +1,23 @@
+body {
+  background-color: blueviolet;
+}
+
+/* viewHighScore + Timer */
+header {
+  background-color: darkgreen;
+}
+/* countdown timer */
+.timer {
+  background-color: brown;
+  font-size: large;
+  padding: 10px;
+}
+/* start quiz button */
+.start-button {
+  background-color: chocolate;
+  padding: 10px;
+}
+/* HighScore buttons container */
+.buttons-container {
+  padding: 10px;
+}
