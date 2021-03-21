@@ -2,12 +2,12 @@ body {
   color: darkred;
   font-family: monospace;
   text-align: center;
-  background-color: rgb(48, 152, 250);
+  background-color: rgb(52, 176, 248);
 }
 
 /* viewHighScore + Timer */
 header {
-  background-color: rgb(44, 149, 248);
+  background-color: rgb(52, 176, 248);
 }
 
 /* HighScore buttons container */

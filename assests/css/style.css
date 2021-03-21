@@ -9,6 +9,10 @@ header {
   text-align: center;
   background-color: rgb(28, 129, 245);
 }
+.logo {
+  width: 5rem;
+  height: 5rem;
+}
 /* countdown timer */
 .timer {
   background-color: rgb(43, 166, 248);
