@@ -20,10 +20,11 @@ header {
 }
 /* countdown timer */
 .timer {
-  background-color: rgb(43, 166, 248);
+  margin: 20px;
+  background-color: rgb(28, 129, 245);
   text-align: center;
   font: size 30px;
-  padding: 10px;
+  padding: 20px;
 }
 /* start container */
 .start-container {
@@ -40,7 +41,7 @@ header {
 .start-button {
   font-size: large;
   color: rgb(246, 12, 12);
-  background-color: rgb(43, 166, 248);
+  background-color: rgb(28, 129, 245);
   padding: 20px;
 }
 .game-container {

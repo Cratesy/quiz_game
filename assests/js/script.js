@@ -1,8 +1,9 @@
 const startButtonElement = document.getElementById("start-button");
 const startGameDiv = document.getElementById("start-container");
-const timerSpanElement = document.createElement("timer");
+const timerSpanElement = document.getElementById("timer");
 const bodyElement = document.body;
-const timerValue = 60;
+
+let timerValue = 5;
 
 const questions = [
   {
@@ -46,10 +47,10 @@ const constructGameContainer = () => {
 
 const startTimer = () => {
   const timerTick = () => {
-    timerValue -= 1;
     timerSpanElement.textContent = timerValue;
+    timerValue -= 1;
 
-    if (timerValue === 0) {
+    if (timerValue < 0) {
       clearInterval(timer);
     }
   };
@@ -67,9 +68,8 @@ const startQuiz = () => {
   // remove start-game
   bodyElement.removeChild(startGameDiv);
 
-  bodyElement.appendChild(gameDivElement);
-
   // insert the game-container
+  bodyElement.appendChild(gameDivElement);
 
   // start timer here
   startTimer();
