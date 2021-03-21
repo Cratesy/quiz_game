@@ -1,16 +1,18 @@
 const startButtonElement = document.getElementById("start-button");
 const startGameDiv = document.getElementById("start-container");
+const timerSpanElement = document.createElement("timer");
 const bodyElement = document.body;
+const timerValue = 60;
 
 const questions = [
   {
-    question: "What does Thor want "'another'" of when he's in the diner??",
-    answers:[
-      {text: "A cup of coffee", correct: true},
-      {text: "A slice of pie", correct: false},
-      {text: "A piece of toast", correct: false},
-      {text: "A stack of pancakes", correct: false},
-    ]
+    question: "What does Thor want 'another' of when he's in the diner??",
+    answers: [
+      { text: "A cup of coffee", correct: true },
+      { text: "A slice of pie", correct: false },
+      { text: "A piece of toast", correct: false },
+      { text: "A stack of pancakes", correct: false },
+    ],
   },
 ];
 const constructGameContainer = () => {
@@ -26,13 +28,32 @@ const constructGameContainer = () => {
   const button1 = document.createElement("button");
   button1.setAttribute("id", "button1");
   const button2 = document.createElement("button");
-  button1.setAttribute("id", "button2");
+  button2.setAttribute("id", "button2");
   const button3 = document.createElement("button");
-  button1.setAttribute("id", "button3");
+  button3.setAttribute("id", "button3");
   const button4 = document.createElement("button");
-  button1.setAttribute("id", "button4");
+  button4.setAttribute("id", "button4");
+
+  gameContainerDiv.appendChild(questionContainer);
+  gameContainerDiv.appendChild(answerContainer);
+  answerContainer.appendChild(button1);
+  answerContainer.appendChild(button2);
+  answerContainer.appendChild(button3);
+  answerContainer.appendChild(button4);
 
   return gameContainerDiv;
+};
+
+const startTimer = () => {
+  const timerTick = () => {
+    timerValue -= 1;
+    timerSpanElement.textContent = timerValue;
+
+    if (timerValue === 0) {
+      clearInterval(timer);
+    }
+  };
+  const timer = setInterval(timerTick, 1000);
 };
 
 const startQuiz = () => {
@@ -49,6 +70,9 @@ const startQuiz = () => {
   bodyElement.appendChild(gameDivElement);
 
   // insert the game-container
+
+  // start timer here
+  startTimer();
 };
 
 startButtonElement.addEventListener("click", startQuiz);
