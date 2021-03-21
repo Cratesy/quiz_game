@@ -32,17 +32,26 @@
         src="assests\favicon\android-chrome-512x512.png"
         alt="quiz game logo of a Q"
       />
-      <h1>Quiz Game</h1>
+      <h1 class="game-name">Quiz Game</h1>
       <div class="high-score">
         <a href="high-score.html">View high-scores</a>
       </div>
       <div class="timer">
-        <div id="timer">Timer:<span>0</span></div>
+        <div>Timer:<span id="timer">0</span></div>
       </div>
     </header>
     <div class="start-container">
-      <div class="start">
-        <button class="start-button" id="start-button">Start Quiz</button>
+      <div>
+        <h1>Welcome</h1>
+        <div class="rules">
+          This is my Quiz about coding hope you enjoy! Rules are:<br />
+          - answer correctly first go for top points = 10 points<br />
+          - each wrong question deducts 10s off time and looses -2 points<br />
+          - run out of time = 0 points
+        </div>
+        <div class="start">
+          <button class="start-button" id="start-button">Start Quiz</button>
+        </div>
       </div>
     </div>
     <script src="assests/js/script.js"></script>
