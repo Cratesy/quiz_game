@@ -1,5 +1,5 @@
 body {
-  color: darkred;
+  color: rgb(246, 12, 12);
   font-family: monospace;
   text-align: center;
   background-color: rgb(52, 176, 248);
@@ -16,6 +16,6 @@ header {
 }
 .clear-high-score,
 .back-button {
-  background-color: darkred;
+  background-color: rgb(246, 12, 12);
   color: rgb(52, 176, 248);
 }

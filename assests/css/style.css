@@ -5,7 +5,7 @@ body {
 
 /* viewHighScore + Timer */
 header {
-  color: crimson;
+  color: rgb(246, 12, 12);
   text-align: center;
   background-color: rgb(28, 129, 245);
 }
@@ -46,7 +46,7 @@ header {
 }
 .game-container {
   padding: 80px;
-  background-color: red;
+  background-color: rgb(28, 129, 245);
   font-size: 20px;
   text-align: center;
 }
@@ -57,7 +57,12 @@ header {
   font-size: large;
   padding: 20px;
 }
-.button1 {
+.button1,
+.button2,
+.button3,
+.button4 {
   text-align: center;
+  color: rgb(246, 12, 12);
+  background-color: rgb(28, 129, 245);
   padding: 30px;
 }
