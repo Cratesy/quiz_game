@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="assests/css/style.css" />
+    <script defer src="assests/js/script.js"></script>
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -40,7 +41,7 @@
         <div>Timer:<span id="timer">0</span></div>
       </div>
     </header>
-    <div class="start-container">
+    <div class="start-container" id="start-container">
       <div>
         <h1>Welcome</h1>
         <div class="rules">
@@ -54,6 +55,16 @@
         </div>
       </div>
     </div>
-    <script src="assests/js/script.js"></script>
+    <div class="game-container" id="game-container">
+      <div class="question-container">
+        What does Thor want "another" of when he's in the diner??
+      </div>
+      <div class="answer-container" id="answer-container">
+        <button id="button1">A slice of pie</button>
+        <button id="button2">A piece of toast</button>
+        <button id="button3">A stack of pancakes</button>
+        <button id="button4">A cup of coffee</button>
+      </div>
+    </div>
   </body>
 </html>
