@@ -1,5 +1,8 @@
 const back = document.querySelector(".back-button");
 const clear = document.querySelector(".clear-high-score");
+const username = document.getElementById("username");
+
+saveHighScore = () => {};
 
 function backToMainScreen(event) {
   history.go(-1);

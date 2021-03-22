@@ -61,8 +61,9 @@ header {
 .button2,
 .button3,
 .button4 {
-  text-align: center;
   color: rgb(246, 12, 12);
-  background-color: rgb(28, 129, 245);
+  background-color: azure;
   padding: 30px;
+  margin: 2rem;
+  border-radius: 0.5rem;
 }

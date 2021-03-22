@@ -3,7 +3,7 @@ const startGameDiv = document.getElementById("start-container");
 const timerSpanElement = document.getElementById("timer");
 const bodyElement = document.body;
 
-let timerValue = 5;
+let timerValue = 60;
 
 const questions = [
   {
@@ -28,12 +28,16 @@ const constructGameContainer = () => {
 
   const button1 = document.createElement("button");
   button1.setAttribute("id", "button1");
+  button1.setAttribute("class", "button1");
   const button2 = document.createElement("button");
   button2.setAttribute("id", "button2");
+  button2.setAttribute("class", "button2");
   const button3 = document.createElement("button");
   button3.setAttribute("id", "button3");
+  button3.setAttribute("class", "button3");
   const button4 = document.createElement("button");
   button4.setAttribute("id", "button4");
+  button4.setAttribute("class", "button4");
 
   gameContainerDiv.appendChild(questionContainer);
   gameContainerDiv.appendChild(answerContainer);

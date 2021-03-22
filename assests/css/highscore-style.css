@@ -1,6 +1,7 @@
 body {
   color: rgb(246, 12, 12);
   font-family: monospace;
+  font-size: 2rem;
   text-align: center;
   background-color: rgb(52, 176, 248);
 }
@@ -18,4 +19,38 @@ header {
 .back-button {
   background-color: rgb(246, 12, 12);
   color: rgb(52, 176, 248);
+}
+
+.content-table {
+  border-collapse: collapse;
+  margin: 25px;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 20px;
+}
+
+.content-table thead tr {
+  background-color: rgb(246, 12, 12);
+  color: rgb(52, 176, 248);
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid gray;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #eb9292;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom 2px solid rgb(246, 12, 12);
 }
