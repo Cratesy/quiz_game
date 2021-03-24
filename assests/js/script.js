@@ -1,6 +1,7 @@
 const startButtonElement = document.getElementById("start-button");
 const startGameDiv = document.getElementById("start-container");
 const timerSpanElement = document.getElementById("timer");
+const quizContainer = document.getElementById("quiz-container");
 const bodyElement = document.body;
 
 let timerValue = 60;
@@ -47,6 +48,8 @@ const constructGameContainer = (question) => {
   const choices = createChoices(question.choices);
 
   divContainer.append(h2, choices);
+
+  return divContainer;
 };
 
 const startTimer = () => {
@@ -62,15 +65,14 @@ const startTimer = () => {
 };
 
 const startQuiz = () => {
-  // remove start-game
+  //create question container
+  const question = constructGameContainer(questions[0]);
+
+  // remove start-game button
   bodyElement.removeChild(startGameDiv);
 
-  // construct the game div in js
-  const gameDivElement = constructGameContainer();
-
-  // remove start-game
-  bodyElement.removeChild(startGameDiv);
-
+  // construct the game
+  quizContainer.appendChild(question);
   // start timer here
   startTimer();
 };
