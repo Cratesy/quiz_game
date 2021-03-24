@@ -1,6 +1,5 @@
 const back = document.querySelector(".back-button");
 const clear = document.querySelector(".clear-high-score");
-const username = document.getElementById("username");
 
 const backToMainScreen = () => {
   location.href = "index.html";
@@ -12,11 +11,19 @@ const clearHighScore = () => {
 
 const getHighScoreFromLocal = () => {
   const highScores = localStorage.getItem("highScores");
+  if (highScores) {
+    return highScores;
+  } else {
+    return [];
+  }
+  console.log(highScores);
 };
 
 const onLoad = () => {
-  getHighScoreFromLocal();
+  const highScores = getHighScoreFromLocal();
 };
 
 back.addEventListener("click", backToMainScreen);
 clear.addEventListener("click", clearHighScore);
+
+window.addEventListener("load", onload);
