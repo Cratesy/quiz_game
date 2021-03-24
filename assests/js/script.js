@@ -7,46 +7,45 @@ let timerValue = 60;
 
 const questions = [
   {
-    question: "What does Thor want 'another' of when he's in the diner??",
-    answers: [
-      { text: "A cup of coffee", correct: true },
-      { text: "A slice of pie", correct: false },
-      { text: "A piece of toast", correct: false },
-      { text: "A stack of pancakes", correct: false },
+    title: "What does Thor want 'another' of when he's in the diner??",
+    choices: [
+      "A cup of coffee",
+      "A slice of pie",
+      "A piece of toast",
+      "A stack of pancakes",
     ],
+    correctAnswer: "A cup of coffee",
   },
 ];
-const constructGameContainer = () => {
-  const gameContainerDiv = document.createElement("div");
-  gameContainerDiv.setAttribute("class", "game-container");
+const createChoices = (choices) => {
+  const parentDiv = document.createElement("div");
 
-  const questionContainer = document.createElement("div");
-  questionContainer.setAttribute("class", "question-container");
+  const createChoicesAndAppend = (choice) => {
+    const div = document.createElement("div");
+    const button = document.createElement("button");
+    button.setAttribute("data-answer", choice);
+    button.textContent = choice;
 
-  const answerContainer = document.createElement("div");
-  answerContainer.setAttribute("class", "answer-container");
+    div.appendChild(button);
 
-  const button1 = document.createElement("button");
-  button1.setAttribute("id", "button1");
-  button1.setAttribute("class", "button1");
-  const button2 = document.createElement("button");
-  button2.setAttribute("id", "button2");
-  button2.setAttribute("class", "button2");
-  const button3 = document.createElement("button");
-  button3.setAttribute("id", "button3");
-  button3.setAttribute("class", "button3");
-  const button4 = document.createElement("button");
-  button4.setAttribute("id", "button4");
-  button4.setAttribute("class", "button4");
+    parentDiv.appendChild(div);
+  };
+  choices.forEach(createChoicesAndAppend);
 
-  gameContainerDiv.appendChild(questionContainer);
-  gameContainerDiv.appendChild(answerContainer);
-  answerContainer.appendChild(button1);
-  answerContainer.appendChild(button2);
-  answerContainer.appendChild(button3);
-  answerContainer.appendChild(button4);
+  return parentDiv;
+};
 
-  return gameContainerDiv;
+const constructGameContainer = (question) => {
+  const divContainer = document.createElement("div");
+  divContainer.setAttribute("id", "question");
+  divContainer.setAttribute("data-answer", question.correctAnswer);
+
+  const h2 = document.createElement("h2");
+  h2.textContent = question.title;
+
+  const choices = createChoices(question.choices);
+
+  divContainer.append(h2, choices);
 };
 
 const startTimer = () => {
@@ -62,18 +61,14 @@ const startTimer = () => {
 };
 
 const startQuiz = () => {
-  // replace this with game container div
+  // remove start-game
+  bodyElement.removeChild(startGameDiv);
 
   // construct the game div in js
   const gameDivElement = constructGameContainer();
 
-  console.log(gameDivElement);
-
   // remove start-game
   bodyElement.removeChild(startGameDiv);
-
-  // insert the game-container
-  bodyElement.appendChild(gameDivElement);
 
   // start timer here
   startTimer();
