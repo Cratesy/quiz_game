@@ -17,6 +17,7 @@ const questions = [
     correctAnswer: "A cup of coffee",
   },
 ];
+
 const createChoices = (choices) => {
   const parentDiv = document.createElement("div");
 
