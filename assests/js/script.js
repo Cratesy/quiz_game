@@ -3,30 +3,50 @@ const startGameDiv = document.getElementById("start-container");
 const timerSpanElement = document.getElementById("timer");
 const quizContainer = document.getElementById("quiz-container");
 const bodyElement = document.body;
+const gameOver = document.getElementById("game-over");
 
 let timerValue = 60;
 
 const questions = [
   {
-    title: "What does Thor want 'another' of when he's in the diner??",
-    choices: [
-      "A cup of coffee",
-      "A slice of pie",
-      "A piece of toast",
-      "A stack of pancakes",
-    ],
-    correctAnswer: "A cup of coffee",
+    title: "The condition in an if/else statement is enclosed within??",
+    choices: ["curly brackets", "parentheses", "square brackets", "quotes"],
+    correctAnswer: "parentheses",
   },
   {
-    title:
-      "Which of the superheroes that stan lee created does he most identify with??",
+    title: "Arrays in Javascript can be used to store??",
     choices: [
-      "Thor",
-      "Tony Stark aka IronMan",
-      "Peter Parker aka SpiderMan",
-      "Bruce Banner aka Hulk",
+      "other arrays",
+      "numbers and strings",
+      "booleans",
+      "all of the above",
     ],
-    correctAnswer: "Peter Parker aka SpiderMan",
+    correctAnswer: "all of the above",
+  },
+  {
+    title: "What does DOM stand for ??",
+    choices: [
+      "do objects more",
+      "document object model",
+      "don't open me",
+      "down operation movement",
+    ],
+    correctAnswer: "document object model",
+  },
+  {
+    title: "What does CSS stand for ??",
+    choices: [
+      "cascading style sheet",
+      "can't style stuff",
+      "could style stuff",
+      "colour style sheet",
+    ],
+    correctAnswer: "cascading style sheet",
+  },
+  {
+    title: "Href is used to link what??",
+    choices: ["websites", "images", "CSS", "all of the above"],
+    correctAnswer: "all of the above",
   },
 ];
 
@@ -57,7 +77,7 @@ const verifyChoice = (event) => {
     const correctAnswer = currentTarget.getAttribute("data-answer");
 
     if (answer === correctAnswer) {
-      index += 1;
+      questions.index += 1;
       quizContainer.removeChild(document.getElementById("question"));
       renderQuestion();
     } else {
@@ -84,13 +104,23 @@ const constructGameContainer = (question) => {
 };
 
 const renderQuestion = () => {
-  if (index < questions.length) {
+  if (questions.index < questions.length) {
     const questionContainer = constructGameContainer(questions[index]);
 
     quizContainer.appendChild(questionContainer);
   } else {
-    alert("DONE");
+    gameOverContainerRenderInput();
   }
+};
+
+const gameOverContainerRenderInput = () => {
+  const divContainer = document.createElement("div");
+  divContainer.setAttribute("id", "done");
+  const h2 = document.createElement("h2");
+  h2.textContent = "GameOver";
+
+  divContainer.append(h2);
+  return divContainer;
 };
 
 const startTimer = () => {
