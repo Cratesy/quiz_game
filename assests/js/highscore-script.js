@@ -16,11 +16,19 @@ const getHighScoreFromLocal = () => {
   } else {
     return [];
   }
-  console.log(highScores);
+};
+
+const renderHighScoreTable = (highScores) => {
+  if (highScores.length === 0) {
+    console.log("empty");
+  } else {
+    console.log("create table");
+  }
 };
 
 const onLoad = () => {
   const highScores = getHighScoreFromLocal();
+  renderHighScoreTable(highScores);
 };
 
 back.addEventListener("click", backToMainScreen);
