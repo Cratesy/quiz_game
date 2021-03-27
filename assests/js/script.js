@@ -18,33 +18,17 @@ const questions = [
     correctAnswer: "A cup of coffee",
   },
   {
-    title: "What does Thor want 'another' of when he's in the diner??",
+    title:
+      "Which of the superheroes that stan lee created does he most identify with??",
     choices: [
-      "A cup of coffee",
-      "A slice of pie",
-      "A piece of toast",
-      "A stack of pancakes",
+      "Thor",
+      "Tony Stark aka IronMan",
+      "Peter Parker aka SpiderMan",
+      "Bruce Banner aka Hulk",
     ],
-    correctAnswer: "A cup of coffee",
+    correctAnswer: "Peter Parker aka SpiderMan",
   },
 ];
-
-const verifyChoice = (event) => {
-  const target = event.target;
-  const currentTarget = event.currentTarget;
-
-  if (target.matches("button")) {
-    const answer = target.getAttribute("data-answer");
-    const correctAnswer = currentTarget.getAttribute("data-answer");
-
-    if (answer === correctAnswer) {
-      index += 1;
-      renderQuestion();
-    } else {
-      alert("Wrong answer");
-    }
-  }
-};
 
 const createChoices = (choices) => {
   const parentDiv = document.createElement("div");
@@ -64,6 +48,24 @@ const createChoices = (choices) => {
   return parentDiv;
 };
 
+const verifyChoice = (event) => {
+  const target = event.target;
+  const currentTarget = event.currentTarget;
+
+  if (target.matches("button")) {
+    const answer = target.getAttribute("data-answer");
+    const correctAnswer = currentTarget.getAttribute("data-answer");
+
+    if (answer === correctAnswer) {
+      index += 1;
+      quizContainer.removeChild(document.getElementById("question"));
+      renderQuestion();
+    } else {
+      alert("Wrong answer");
+    }
+  }
+};
+
 const constructGameContainer = (question) => {
   const divContainer = document.createElement("div");
   divContainer.setAttribute("id", "question");
@@ -76,7 +78,19 @@ const constructGameContainer = (question) => {
 
   divContainer.append(h2, choices);
 
+  divContainer.addEventListener("click", verifyChoice);
+
   return divContainer;
+};
+
+const renderQuestion = () => {
+  if (index < questions.length) {
+    const questionContainer = constructGameContainer(questions[index]);
+
+    quizContainer.appendChild(questionContainer);
+  } else {
+    alert("DONE");
+  }
 };
 
 const startTimer = () => {
