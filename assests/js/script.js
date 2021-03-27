@@ -6,6 +6,7 @@ const bodyElement = document.body;
 const gameOver = document.getElementById("game-over");
 
 let timerValue = 60;
+let index = 0;
 
 const questions = [
   {
@@ -77,11 +78,12 @@ const verifyChoice = (event) => {
     const correctAnswer = currentTarget.getAttribute("data-answer");
 
     if (answer === correctAnswer) {
-      questions.index += 1;
+      index += 1;
       quizContainer.removeChild(document.getElementById("question"));
       renderQuestion();
     } else {
       alert("Wrong answer");
+      timerValue -= 5;
     }
   }
 };
@@ -104,7 +106,7 @@ const constructGameContainer = (question) => {
 };
 
 const renderQuestion = () => {
-  if (questions.index < questions.length) {
+  if (index < questions.length) {
     const questionContainer = constructGameContainer(questions[index]);
 
     quizContainer.appendChild(questionContainer);
@@ -118,8 +120,7 @@ const gameOverContainerRenderInput = () => {
   divContainer.setAttribute("id", "done");
   const h2 = document.createElement("h2");
   h2.textContent = "GameOver";
-
-  divContainer.append(h2);
+  const userName = divContainer.append(h2);
   return divContainer;
 };
 
@@ -136,14 +137,15 @@ const startTimer = () => {
 };
 
 const startQuiz = () => {
-  //create question container
-  const question = constructGameContainer(questions[0]);
-
   // remove start-game button
   bodyElement.removeChild(startGameDiv);
 
+  //create question container
+  const question = constructGameContainer(questions[0]);
+
   // construct the game
   quizContainer.appendChild(question);
+
   // start timer here
   startTimer();
 };
