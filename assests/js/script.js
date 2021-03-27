@@ -115,12 +115,36 @@ const renderQuestion = () => {
   }
 };
 
+const captureUserInput = (event) => {
+  event.preventDefault();
+
+  console.log(event.target);
+  const userInput = event.value;
+  console.log(userInput);
+};
+
 const gameOverContainerRenderInput = () => {
   const divContainer = document.createElement("div");
   divContainer.setAttribute("id", "done");
   const h2 = document.createElement("h2");
   h2.textContent = "GameOver";
   const userName = divContainer.append(h2);
+
+  const userForm = document.createElement("form");
+
+  const submitButton = document.createElement("button");
+
+  submitButton.setAttribute("type", "submit");
+
+  const userInput = document.createElement("input");
+  userInput.setAttribute("type", "text");
+  userForm.append(userInput);
+  userForm.append(submitButton);
+
+  userForm.addEventListener("submit", captureUserInput);
+  divContainer.append(userForm);
+  gameOver.appendChild(divContainer);
+
   return divContainer;
 };
 
