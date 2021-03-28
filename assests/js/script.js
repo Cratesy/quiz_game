@@ -120,8 +120,8 @@ const renderQuestion = () => {
 const captureUserInput = (event) => {
   event.preventDefault();
 
-  console.log(event.target);
-  const userInput = event.value;
+  console.log(timerValue + 1);
+  const userInput = document.getElementById("input-text");
   console.log(userInput);
 };
 
@@ -146,6 +146,7 @@ const gameOverContainerRenderInput = () => {
   submitButton.textContent = "submit";
 
   const userInput = document.createElement("input");
+  userInput.setAttribute("id", "input-text");
   userInput.setAttribute("type", "text");
 
   userForm.addEventListener("submit", captureUserInput);
