@@ -22,10 +22,14 @@ Left todo;
 
 ## Screenshots
 
-<img scr= "assets\img\quiz-game1.jpg" />
-<img scr= "assets\img\quiz-game2.jpg" />
-<img scr= "assets\img\quiz-game3.jpg" />
-<img scr= "assets\img\quiz-game4.jpg" />
+<img src="assets\img\quiz-game1.jpg"
+alt="screenshot of deployed quiz"/>
+<img src="assets\img\quiz-game2.jpg"
+alt="screenshot of deployed quiz"/>
+<img src="assets\img\quiz-game3.jpg"
+alt="screenshot of deployed quiz"/>
+<img src="assets\img\quiz-game4.jpg"
+alt="screenshot of deployed quiz"/>
 
 ## Link to deployed website
 
