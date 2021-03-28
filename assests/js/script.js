@@ -122,7 +122,7 @@ const captureUserInput = (event) => {
 
   console.log(timerValue + 1);
   const userInput = document.getElementById("input-text");
-  const userInputValue = userInput.textContent;
+  const userInputValue = userInput.value;
   console.log(userInputValue);
 };
 
