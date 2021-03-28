@@ -122,7 +122,8 @@ const captureUserInput = (event) => {
 
   console.log(timerValue + 1);
   const userInput = document.getElementById("input-text");
-  console.log(userInput);
+  const userInputValue = userInput.textContent;
+  console.log(userInputValue);
 };
 
 const gameOverContainerRenderInput = () => {
