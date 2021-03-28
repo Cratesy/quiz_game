@@ -8,7 +8,7 @@ const gameOver = document.getElementById("game-over");
 let timerValue = 60;
 let index = 0;
 let timerScore = "";
-
+// question choices and correctAnswer array
 const questions = [
   {
     title: "The condition in an if/else statement is enclosed within??",
@@ -52,6 +52,7 @@ const questions = [
   },
 ];
 
+// reusable choices container / answers
 const createChoices = (choices) => {
   const parentDiv = document.createElement("div");
 
@@ -70,6 +71,7 @@ const createChoices = (choices) => {
   return parentDiv;
 };
 
+// seeing if your answer is right or wrong
 const verifyChoice = (event) => {
   const target = event.target;
   const currentTarget = event.currentTarget;
@@ -89,6 +91,7 @@ const verifyChoice = (event) => {
   }
 };
 
+// to make the main game container with question and choices in
 const constructGameContainer = (question) => {
   const divContainer = document.createElement("div");
   divContainer.setAttribute("id", "question");
@@ -106,6 +109,7 @@ const constructGameContainer = (question) => {
   return divContainer;
 };
 
+// looping through the questions array until its completed
 const renderQuestion = () => {
   if (index < questions.length) {
     const questionContainer = constructGameContainer(questions[index]);
@@ -117,15 +121,29 @@ const renderQuestion = () => {
   }
 };
 
+// getting the input from user and score from time remaining
 const captureUserInput = (event) => {
   event.preventDefault();
 
-  console.log(timerValue + 1);
   const userInput = document.getElementById("input-text");
   const userInputValue = userInput.value;
-  console.log(userInputValue);
+  const scoreTime = timerValue + 1;
+  const highScore = [
+    {
+      userInputValue,
+      scoreTime,
+    },
+  ];
+  saveHighScore(highScore);
+  console.log(highScore);
 };
 
+// saving the input and score into local
+const saveHighScore = (highScoreObject) => {
+  // logic for saving highScore to localStorage
+};
+
+// gameOver container
 const gameOverContainerRenderInput = () => {
   const divContainer = document.createElement("div");
   divContainer.setAttribute("id", "done");
@@ -161,6 +179,7 @@ const gameOverContainerRenderInput = () => {
   return divContainer;
 };
 
+// timer container
 const startTimer = () => {
   const timerTick = () => {
     timerSpanElement.textContent = timerValue;
@@ -177,6 +196,7 @@ const startTimer = () => {
   const timer = setInterval(timerTick, 1000);
 };
 
+// start quiz
 const startQuiz = () => {
   // remove start-game button
   bodyElement.removeChild(startGameDiv);

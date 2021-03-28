@@ -1,14 +1,17 @@
 const back = document.querySelector(".back-button");
 const clear = document.querySelector(".clear-high-score");
 
+// go back
 const backToMainScreen = () => {
   location.href = "index.html";
 };
 
+// clear local highScores
 const clearHighScore = () => {
   localStorage.clear();
 };
 
+// checking if there is highScores
 const getHighScoreFromLocal = () => {
   const highScores = localStorage.getItem("highScores");
   if (highScores) {
@@ -18,6 +21,7 @@ const getHighScoreFromLocal = () => {
   }
 };
 
+// constructing highScoreTable
 const renderHighScoreTable = (highScores) => {
   if (highScores.length === 0) {
     console.log("empty");
@@ -26,6 +30,7 @@ const renderHighScoreTable = (highScores) => {
   }
 };
 
+// loading highScores onload
 const onLoad = () => {
   const highScores = getHighScoreFromLocal();
   renderHighScoreTable(highScores);
