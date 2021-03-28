@@ -131,9 +131,11 @@ const gameOverContainerRenderInput = () => {
   const h2 = document.createElement("h2");
   h2.textContent = "GameOver, Thank you for playing!";
   divContainer.append(h2);
+
   const timerScore = document.createElement("div");
 
   timerScore.setAttribute("timerValue", timerValue);
+
   timerScore.textContent = timerValue;
 
   const userForm = document.createElement("form");
@@ -141,15 +143,16 @@ const gameOverContainerRenderInput = () => {
   const submitButton = document.createElement("button");
   submitButton.setAttribute("id", "submit-button");
   submitButton.setAttribute("type", "submit");
+  submitButton.textContent = "submit";
 
   const userInput = document.createElement("input");
   userInput.setAttribute("type", "text");
 
+  userForm.addEventListener("submit", captureUserInput);
+
   userForm.append(timerScore);
   userForm.append(userInput);
   userForm.append(submitButton);
-
-  userForm.addEventListener("submit", captureUserInput);
   divContainer.append(userForm);
   gameOver.appendChild(divContainer);
 
@@ -185,7 +188,5 @@ const startQuiz = () => {
   // start timer here
   startTimer();
 };
-
-const addScore = () => {};
 
 startButtonElement.addEventListener("click", startQuiz);
