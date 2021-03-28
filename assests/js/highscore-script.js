@@ -15,20 +15,14 @@ const clearHighScore = () => {
 const getHighScoreFromLocal = () => {
   const highScores = localStorage.getItem("highScores");
   if (highScores) {
-    return highScores;
+    return JSON.parse("highScores");
   } else {
     return [];
   }
 };
 
 // constructing highScoreTable
-const renderHighScoreTable = (highScores) => {
-  if (highScores.length === 0) {
-    console.log("empty");
-  } else {
-    console.log("create table");
-  }
-};
+const renderHighScoreTable = (highScores) => {};
 
 // loading highScores onload
 const onLoad = () => {
