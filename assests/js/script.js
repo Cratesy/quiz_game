@@ -7,6 +7,7 @@ const gameOver = document.getElementById("game-over");
 
 let timerValue = 60;
 let index = 0;
+let timerScore = "";
 
 const questions = [
   {
@@ -138,6 +139,7 @@ const gameOverContainerRenderInput = () => {
   const userForm = document.createElement("form");
 
   const submitButton = document.createElement("button");
+  submitButton.setAttribute("id", "submit-button");
   submitButton.setAttribute("type", "submit");
 
   const userInput = document.createElement("input");
@@ -159,18 +161,12 @@ const startTimer = () => {
     timerSpanElement.textContent = timerValue;
     timerValue -= 1;
 
-    if (timerValue < 0) {
+    if (timerValue < 0 || index >= questions.length) {
       clearInterval(timer);
-
-      //construct form container
-      const formContainer = gameOverContainerRenderInput();
 
       //remove quiz container
       const quizCardContainer = document.getElementById("quiz-container");
       bodyElement.removeChild(quizCardContainer);
-
-      //append form container to body
-      gameOverContainerRenderInput();
     }
   };
   const timer = setInterval(timerTick, 1000);
@@ -189,5 +185,7 @@ const startQuiz = () => {
   // start timer here
   startTimer();
 };
+
+const addScore = () => {};
 
 startButtonElement.addEventListener("click", startQuiz);
