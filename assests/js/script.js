@@ -128,19 +128,26 @@ const captureUserInput = (event) => {
   const userInput = document.getElementById("input-text");
   const userInputValue = userInput.value;
   const scoreTime = timerValue + 1;
-  const highScore = [
+  const finalHighScore = [
     {
       userInputValue,
       scoreTime,
     },
   ];
-  saveHighScore(highScore);
-  console.log(highScore);
+  const highScores = getHighScoresFromLocalStorage();
+  highScores.push(finalHighScore);
+  localStorage.setItem("highScores", JSON.stringify(highScores));
+  window.location.href = "high-score.html";
 };
 
-// saving the input and score into local
-const saveHighScore = (highScoreObject) => {
-  // logic for saving highScore to localStorage
+// Get high scores from local storage
+const getHighScoresFromLocalStorage = () => {
+  const highScores = localStorage.getItem("highScores");
+  if (highScores) {
+    return JSON.parse(highScores);
+  } else {
+    return [];
+  }
 };
 
 // gameOver container
