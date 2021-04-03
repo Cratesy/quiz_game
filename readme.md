@@ -13,12 +13,7 @@ We've been tasked with creating a coding quiz from scratch following a certain c
 - when game over is displayed, your prompted to input your name to be added to highScores
 - highScore is clearable with clear button
 - on highScore page has a go back button to home page
-
-## Todo
-
-Left todo;
-
-- I would of liked to fully render the highScore table on highScore page from local storage.
+- all highScore from local are rendered to the highScore page
 
 ## Screenshots
 
@@ -28,7 +23,7 @@ alt="screenshot of deployed quiz"/>
 alt="screenshot of deployed quiz"/>
 <img src="assets\img\quiz-game3.jpg"
 alt="screenshot of deployed quiz"/>
-<img src="assets\img\quiz-game4.jpg"
+<img src="assets\img\highscore quiz game.jpg"
 alt="screenshot of deployed quiz"/>
 
 ## Link to deployed website
