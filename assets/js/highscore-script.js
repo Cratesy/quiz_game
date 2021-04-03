@@ -16,35 +16,30 @@ const clearHighScore = () => {
 const getHighScoreFromLocal = () => {
   const highScores = localStorage.getItem("highScores");
   if (highScores) {
-    return JSON.parse("highScores");
+    return JSON.parse(highScores);
   } else {
     return [];
   }
 };
 
 // constructing highScoreTable
-const renderHighScoreTable = () => {
-  const tr = tableBody.createElement("tr");
-  // const td = document.createElement("td");
-  // td.textContent = rank;
-  const tdInput = tr.createElement("td");
-  tdInput.textContent = userInputValue;
-  const tdScore = tr.createElement("td");
-  tdScore.textContent = scoreTime;
-  // td.append(td);
-  tr.append(tr);
-  tdInput.append(tdInput);
-  tdScore.append(tdScore);
-  return tr;
+const renderHighScoreRow = (highScore) => {
+  const tr = document.createElement("tr");
+  const tdInput = document.createElement("td");
+  const tdScore = document.createElement("td");
+  tdInput.textContent = highScore.userInputValue;
+  tdScore.textContent = highScore.scoreTime;
+  tr.append(tdInput);
+  tr.append(tdScore);
+  tableBody.append(tr);
 };
 
 // loading highScores onload
 const onLoad = () => {
   const highScores = getHighScoreFromLocal();
-  renderHighScoreTable(highScores);
+  highScores.forEach(renderHighScoreRow);
 };
 
 back.addEventListener("click", backToMainScreen);
 clear.addEventListener("click", clearHighScore);
-
-window.addEventListener("load", onload);
+window.addEventListener("load", onLoad);

@@ -128,12 +128,10 @@ const captureUserInput = (event) => {
   const userInput = document.getElementById("input-text");
   const userInputValue = userInput.value;
   const scoreTime = timerValue + 1;
-  const finalHighScore = [
-    {
-      userInputValue,
-      scoreTime,
-    },
-  ];
+  const finalHighScore = {
+    userInputValue,
+    scoreTime,
+  };
   const highScores = getHighScoresFromLocalStorage();
   highScores.push(finalHighScore);
   localStorage.setItem("highScores", JSON.stringify(highScores));
